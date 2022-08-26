@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block title %}Student Termination{% endblock %} {% block content
+    %}
+    <h3 align="center">Student Termination</h3>
+    <br>
+
+    <form method="POST">
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <!-- Your Columns HERE -->
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+            </tr>
+        </thead>
+            <tbody>
+                <!-- Your rows inside the table HERE: -->
+                {% for students in student%}
+                    <tr>
+                        <td>{{ students.id }}</td>
+                        <td>{{ students.first_name }}</td>
+                        <td>
+                            <button class="btn btn-outline btn-danger" name="expel_button" value="{{ students.id}}">Expel</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+    <br>
+</form>
+    {% endblock %}

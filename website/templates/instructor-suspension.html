@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block title %}Instructor Suspension{% endblock %} {% block content
+    %}
+    <h3 align="center">Instructor Suspension</h3>
+    <br>
+
+    <form method="POST">
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <!-- Your Columns HERE -->
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+            </tr>
+        </thead>
+            <tbody>
+                <!-- Your rows inside the table HERE: -->
+                    <tr>
+                        {% for i in data %}
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.first_name }}</td>
+                        <td>
+                            <button class="btn btn-outline btn-danger" name = "submit_button" value = "{{ i.id }}">Suspend</button>
+                            <button class="btn btn-outline btn-danger" name = "submit_button2" value = "{{ i.id }}">Back</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+    <br>
+</form>
+    {% endblock %}

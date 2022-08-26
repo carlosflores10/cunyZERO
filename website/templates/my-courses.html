@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}My Courses{% endblock %} {% block content
+    %}
+    <h3 align="center">My Courses</h3>
+    <br>
+
+    <form method="POST">
+    <table class="table table-hover table-dark">
+       <thead>
+            <tr>
+                {% for header in table_headings %}
+                <th> {{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+            <tbody>
+            <tr>
+                {% for courses in data %}
+                <td>{{courses.course_id }}</td>
+                <td>{{courses.name }}</td>
+                <td>{{courses.semester}}</td>
+                <td>{{courses.capacity }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    <br>
+</form>
+    {% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}Search Classes{% endblock %} {% block content
+%}
+<br>
+<h3 align="center">{{ user.usertype }} Drop Classes</h3>
+<br>
+<form method="POST">
+<table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                {% for header in table_headings %}
+                <th> {{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+            <tbody>
+            <tr>
+                {% for courses in data %}
+                <td>{{courses.course_id }}</td>
+                <td>{{courses.name }}</td>
+                <td>{{courses.instructor }}</td>
+                <td>{{courses.semester}}</td>
+                <td><button class="btn btn-outline btn-danger" name="dropbutton" value="{{ courses.id }}" formmethod="POST" >Drop</button></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+</form>
+{% endblock %}
